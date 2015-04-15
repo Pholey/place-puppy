@@ -6,12 +6,7 @@ import qualified Text.Blaze.Html5 as H
 import qualified Text.Blaze.Html5.Attributes as A
 import Text.Blaze.Html.Renderer.Text
 
-module Placepuppy.Views.Index where
+module Views.Index (render) where
 
 render = do
-  S.html $ do
-    H.body $ do
-      h1 "placepuppy"
-      ul $ do
-        li "no cats"
-        li "much puppy"
+  html "bar"
