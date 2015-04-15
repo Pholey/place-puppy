@@ -1,3 +1,7 @@
+{-# LANGUAGE OverloadedStrings #-}
+
+module Views.Index (render) where
+
 import Web.Scotty
 import Text.Blaze.Html5
 import Text.Blaze.Html5.Attributes
@@ -6,7 +10,10 @@ import qualified Text.Blaze.Html5 as H
 import qualified Text.Blaze.Html5.Attributes as A
 import Text.Blaze.Html.Renderer.Text
 
-module Views.Index (render) where
-
 render = do
-  html "bar"
+  H.html $ do
+    H.body $ do
+      h1 "wow, such puppy"
+      ul $ do
+        li "much wag"
+        li "woof"

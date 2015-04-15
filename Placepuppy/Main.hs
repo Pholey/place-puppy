@@ -1,16 +1,16 @@
 {-# LANGUAGE OverloadedStrings #-}
 import Data.Monoid
 import Web.Scotty
-import qualified Text.Blaze.Html5
+import qualified Data.Text.Lazy as T
+import Data.Text.Lazy.Encoding (decodeUtf8)
+import qualified Views.Index
 import Text.Blaze.Html.Renderer.Text
-import Views.Index
-
-module Main (main) where
 
 blaze = html . renderHtml
+
 main = scotty 9001 $ do
   get "/" $ do
-    html "<h1>NOTHING TO SEE HERE</h2>"
+    blaze Views.Index.render
 
   matchAny "/:width/:height" $ do
     width <- param "width"
